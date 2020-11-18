@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "112227903569",
+    "firebase_url": "https://flutter-social-login-13032.firebaseio.com",
+    "project_id": "flutter-social-login-13032",
+    "storage_bucket": "flutter-social-login-13032.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112227903569:android:adb7fcc9e42f660e83b070",
+        "android_client_info": {
+          "package_name": "com.sumonpust.socialLogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112227903569-pvgrvum4h19g46sudqcl5nabhdr92nph.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sumonpust.socialLogin",
+            "certificate_hash": "5cff81e57b75727f389d73278a2d89442fc48735"
+          }
+        },
+        {
+          "client_id": "112227903569-gb0qr9na0sm557a4ec7e6skdg2upfb8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfs70lVYbtFrxuD--oz3HecihAOVO6uW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112227903569-gb0qr9na0sm557a4ec7e6skdg2upfb8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
