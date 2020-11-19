@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:socialLogin/app_sharedpreferences.dart';
 import 'package:socialLogin/auth_page.dart';
 
@@ -11,11 +12,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final facebooklogin = FacebookLogin();
-
   //AppSharedPreferences _appSharedPreferences;
+  GoogleSignIn _googleSignIn = GoogleSignIn(
+    scopes: [
+      'email',
+      'https://www.googleapis.com/auth/contacts.readonly',
+    ],
+  );
 
-  Future<Null> _logoutFromFacebook() async {
+  Future<Null> _logout() async {
     await facebooklogin.logOut();
+    await _googleSignIn.signOut();
   }
 
   String _name;
@@ -93,17 +100,22 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                       ],
-                    )
+                    )),
+                Container(
+                  height: 50,
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    _firstname ?? 'first_name',
+                    style: TextStyle(color: Colors.indigo, fontSize: 20),
+                  ),
                 ),
                 Container(
                   height: 50,
                   alignment: Alignment.centerLeft,
-                  child: Text(_firstname?? 'first_name', style: TextStyle(color: Colors.indigo, fontSize: 20),),
-                ),
-                Container(
-                  height: 50,
-                  alignment: Alignment.centerLeft,
-                  child: Text(_lastname??'last_name', style: TextStyle(color: Colors.indigo, fontSize: 20),),
+                  child: Text(
+                    _lastname ?? 'last_name',
+                    style: TextStyle(color: Colors.indigo, fontSize: 20),
+                  ),
                 ),
               ],
             ),
@@ -138,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
                     onPressed: () async {
-                      _logoutFromFacebook();
+                      _logout();
                       Navigator.of(context).push(
                           CupertinoPageRoute(builder: (context) => AuthPage()));
                     }),

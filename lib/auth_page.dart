@@ -27,7 +27,6 @@ class _AuthPageState extends State<AuthPage> {
   Future<void> _handleGoogleSignIn() async {
     try {
       await _googleSignIn.signIn();
-      await _progressDialog.show();
       setState(() {
         _isloggedIn = true;
       });
@@ -103,7 +102,9 @@ class _AuthPageState extends State<AuthPage> {
                   Buttons.GoogleDark,
                   onPressed: () async {
                     await _handleGoogleSignIn();
+
                     if (_isloggedIn == true) {
+                      await _progressDialog.show();
                       setState(() {
                         _isloggedIn = false;
                       });
@@ -113,6 +114,8 @@ class _AuthPageState extends State<AuthPage> {
                           _googleSignIn.currentUser.email);
                       await AppSharedPreferences.setProfilePhoto(
                           _googleSignIn.currentUser.photoUrl);
+                      await AppSharedPreferences.setFirstName('firsr_name');
+                      await AppSharedPreferences.setLastName('last_Name');
 
                       await _progressDialog.hide();
                       Navigator.of(context).push(CupertinoPageRoute(
