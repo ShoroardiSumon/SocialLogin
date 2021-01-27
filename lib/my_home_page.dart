@@ -136,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(color: Colors.indigo, fontSize: 40),
                 ),
                 SizedBox(
-                  height: 340,
+                  height: 100,
                 ),
                 MaterialButton(
                     child: Text(
@@ -148,12 +148,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     minWidth: 300,
                     height: 40,
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8)),
+                        borderRadius: BorderRadius.circular(8)
+                    ),
                     onPressed: () async {
-                      _logout();
+                      await _logout();
                       Navigator.of(context).push(
-                          CupertinoPageRoute(builder: (context) => AuthPage()));
-                    }),
+                          CupertinoPageRoute(builder: (context) => AuthPage())
+                      );
+                    }
+                ),
               ],
             ),
           ),
